@@ -17,6 +17,7 @@ export default class Color extends React.Component{
     };
 
     Random:Function = (bg:string) => {
+        ++this.count
         bg = `${Math.floor(Math.random() * 16777215).toString(16)}`; // console.log(bg)    // ทดสอบ
         document.body.style.background = `#${bg}`;
         this.result= `รหัสสีรอบที่${this.count}ได้: #${bg}`;
