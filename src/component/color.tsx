@@ -11,9 +11,13 @@ import 'sweetalert2/dist/sweetalert2.min.js'
 
 export default function Color(){
 
+    // setstate
     var [color, setColor] = React.useState("");
     var [count , setCount] = React.useState(0);
+    
     var result:any;
+    
+    // distance
     const distance:object = {
       marginTop: '15rem',
       maginLeft:  '3rem',
