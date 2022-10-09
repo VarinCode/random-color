@@ -1,30 +1,29 @@
+// import react
 import React, { Fragment } from "react";
-import Swal from "sweetalert2";
 
-// style
+// import style
 import { distance , box , btn_random , btn_reset , btn_copy } from '../style/style'
 
-// lib
+// import lib
+import Swal from "sweetalert2";
 import 'sweetalert2/dist/sweetalert2.min.css';
-import 'sweetalert2/dist/sweetalert2.min.js'
+import 'sweetalert2/dist/sweetalert2.min.js';
 
-
-export default function Color(){
-    // setstate
+export default function Color() {
     let [color, setColor] = React.useState('');
     let [count , setCount] = React.useState(0);
     let result:string|number;
     
     const Event_Random:Function = (bg:string) => {
         bg = `${Math.floor(Math.random() * 16777215).toString(16)}`;
-        document.body.style.background = `#${bg}`
+        document.body.style.background = `#${bg}`;
         result= `#${bg}`;
         setCount((count) => count += 1);
         setColor((change_color) => {
-          return change_color = result.toString()
-        })
+          return change_color = result.toString();
+        });
     }
-    let prototype:string = color
+    let prototype:string = color;
     const hightlight:object = {
       backgroundColor: prototype,
       color: 'black',
@@ -39,14 +38,13 @@ export default function Color(){
         html: `<h4>${prototype}</h4>`,
         showConfirmButton: false,
         timer: 1100
-      })
+      });
       if(count == 0){
-        navigator.clipboard.writeText('ไม่มี')
+        navigator.clipboard.writeText('ไม่มี');
       } else {
-        navigator.clipboard.writeText(prototype)
+        navigator.clipboard.writeText(prototype);
       }
     }
-
 
     const Event_Reset:Function = (themedefault:string = 'rgb(255, 255, 255)') => {
         Swal.fire({
@@ -76,7 +74,7 @@ export default function Color(){
                     if (result.isConfirmed) {
                       Event_Random()
                     } else if (result.isDenied) {
-                      return false
+                      return false;
                     }
                   })
                 }
@@ -86,7 +84,6 @@ export default function Color(){
   return(
     <Fragment>
       <section style={distance}></section>
-
           <section className="container-color">
             <div className="row">
               <div style={box}>
